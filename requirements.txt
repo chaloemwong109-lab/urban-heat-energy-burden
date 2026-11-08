@@ -1,0 +1,6 @@
+pandas
+pandera
+duckdb
+geopandas
+jupyter
+requests
