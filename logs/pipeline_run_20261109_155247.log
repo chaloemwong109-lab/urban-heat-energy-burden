@@ -1,0 +1,8 @@
+2026-11-09 15:52:47,584 - INFO - 🚀 Starting Data Pipeline for 'Heat & Energy Burden'
+2026-11-09 15:52:47,585 - INFO - ▶️ Executing: scripts/01_ingest.py
+2026-11-09 15:52:47,617 - INFO - ✅ Successfully finished: scripts/01_ingest.py
+2026-11-09 15:52:47,617 - INFO - ▶️ Executing: scripts/02_validate_clean.py
+2026-11-09 15:52:47,651 - INFO - ✅ Successfully finished: scripts/02_validate_clean.py
+2026-11-09 15:52:47,651 - INFO - ▶️ Executing: scripts/03_transform.py
+2026-11-09 15:52:47,685 - INFO - ✅ Successfully finished: scripts/03_transform.py
+2026-11-09 15:52:47,686 - INFO - 🎉 Pipeline execution completed.
