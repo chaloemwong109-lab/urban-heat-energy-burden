@@ -1,5 +1,6 @@
-pandas
-pandera
+pandas>=2.0.0
+pandera>=0.18.0
+pyarrow>=14.0.0
 duckdb
 geopandas
 jupyter
