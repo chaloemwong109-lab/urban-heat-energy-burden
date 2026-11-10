@@ -1,0 +1,44 @@
+{
+  "sources": {
+    "bkk_temperature": {
+      "file": "data/bronze/bkk_temperature.csv",
+      "kind": "api",
+      "provider": "Open-Meteo Historical Weather API (ERA5 reanalysis)",
+      "origin": "retained",
+      "url": null,
+      "sha256": "a5c4b784a35af8aec28204095de1657945ddbd8c04a2732a2f21cf595e7c0052",
+      "bytes": 63570,
+      "lines": 3968,
+      "ingested_at": "2026-11-11T01:11:51",
+      "last_checked_at": "2026-11-11T01:17:37",
+      "status": "unchanged"
+    },
+    "mea_electricity": {
+      "file": "data/bronze/mea_electricity.csv",
+      "kind": "file",
+      "provider": "Metropolitan Electricity Authority (MEA) open statistics",
+      "origin": "retained",
+      "url": null,
+      "sha256": "46fb7aa7d140810a5fa9aa109db619576a5501f98c4201ff970b54a33fca47a7",
+      "bytes": 8853,
+      "lines": 47,
+      "ingested_at": "2026-11-11T01:11:51",
+      "last_checked_at": "2026-11-11T01:17:37",
+      "status": "unchanged"
+    },
+    "ref_mea_districts": {
+      "file": "data/bronze/ref_mea_districts.csv",
+      "kind": "reference",
+      "provider": "Team-curated lookup (manual geocode of MEA district service areas)",
+      "origin": "reference:data/reference/mea_districts.csv",
+      "url": null,
+      "sha256": "c884d91e196b30c93c56ecd6deea4d75ea574e876f49f4e8a7f20b12f40cf40d",
+      "bytes": 2131,
+      "lines": 19,
+      "ingested_at": "2026-11-11T01:11:51",
+      "last_checked_at": "2026-11-11T01:17:37",
+      "status": "unchanged"
+    }
+  },
+  "last_run_at": "2026-11-11T01:17:37"
+}

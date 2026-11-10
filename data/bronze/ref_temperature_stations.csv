@@ -1,0 +1,2 @@
+station_id,station_name,lat,lon,elevation_m,source_file
+OM_BKK_01,Open-Meteo ERA5 grid cell - Bangkok,13.743409,100.495865,7.0,bkk_temperature.csv
