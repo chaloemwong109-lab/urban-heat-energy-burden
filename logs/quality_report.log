@@ -16,3 +16,12 @@
 2026-11-09 17:52:09,602 [INFO] Saved: C:\Data341\urban-heat-energy-burden\data\silver\clean_electricity.parquet
 2026-11-09 17:52:09,603 [INFO] === Validation & Cleaning Stage Finished Successfully ===
 
+2026-11-11 19:56:26,205 [INFO] === Starting Data Validation & Cleansing Pipeline ===
+2026-11-11 19:56:26,206 [INFO] --- [START] Validating & Cleaning Temperature Data ---
+2026-11-11 19:56:26,765 [INFO] [Temperature] Pandera Validation PASSED (3964 rows).
+2026-11-11 19:56:26,765 [INFO] --- [START] Validating & Cleaning MEA Electricity Data ---
+2026-11-11 19:56:26,780 [INFO] [Electricity] Pandera Validation PASSED (180 rows).
+2026-11-11 19:56:26,957 [INFO] Saved: C:\urban-heat-energy-burden\data\silver\clean_temperature.parquet
+2026-11-11 19:56:26,957 [INFO] Saved: C:\urban-heat-energy-burden\data\silver\clean_electricity.parquet
+2026-11-11 19:56:26,957 [INFO] === Validation & Cleaning Stage Finished Successfully ===
+

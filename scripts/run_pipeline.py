@@ -1,6 +1,7 @@
 import subprocess
 import logging
 import os
+import sys
 from datetime import datetime
 
 # 1. ตั้งค่าระบบ Logging บันทึกผลลงโฟลเดอร์ logs
@@ -31,7 +32,7 @@ def run_pipeline():
         logging.info(f"▶️ Executing: {script}")
         try:
             # สั่งรันไฟล์ Python
-            result = subprocess.run(["python", script], check=True, capture_output=True, text=True)
+            result = subprocess.run([sys.executable, script], check=True, capture_output=True, text=True)
             if result.stdout:
                 logging.info(f"Output:\n{result.stdout.strip()}")
             logging.info(f"✅ Successfully finished: {script}")

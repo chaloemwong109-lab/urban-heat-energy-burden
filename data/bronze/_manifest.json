@@ -10,7 +10,7 @@
       "bytes": 63570,
       "lines": 3968,
       "ingested_at": "2026-11-11T01:11:51",
-      "last_checked_at": "2026-11-11T01:17:37",
+      "last_checked_at": "2026-11-11T19:56:25",
       "status": "unchanged"
     },
     "mea_electricity": {
@@ -19,26 +19,26 @@
       "provider": "Metropolitan Electricity Authority (MEA) open statistics",
       "origin": "retained",
       "url": null,
-      "sha256": "46fb7aa7d140810a5fa9aa109db619576a5501f98c4201ff970b54a33fca47a7",
-      "bytes": 8853,
+      "sha256": "297fc96c5671c133757d77feda985df0d1949127ca27c1296f6931b48b1cbdc1",
+      "bytes": 8900,
       "lines": 47,
-      "ingested_at": "2026-11-11T01:11:51",
-      "last_checked_at": "2026-11-11T01:17:37",
+      "ingested_at": "2026-11-11T19:55:33",
+      "last_checked_at": "2026-11-11T19:56:25",
       "status": "unchanged"
     },
     "ref_mea_districts": {
       "file": "data/bronze/ref_mea_districts.csv",
       "kind": "reference",
       "provider": "Team-curated lookup (manual geocode of MEA district service areas)",
-      "origin": "reference:data/reference/mea_districts.csv",
+      "origin": "reference:data\\reference\\mea_districts.csv",
       "url": null,
-      "sha256": "c884d91e196b30c93c56ecd6deea4d75ea574e876f49f4e8a7f20b12f40cf40d",
-      "bytes": 2131,
+      "sha256": "f6232288d6edc68fd610afd968ab1f50f78d4c7a46444c31d44892152d018d98",
+      "bytes": 2150,
       "lines": 19,
-      "ingested_at": "2026-11-11T01:11:51",
-      "last_checked_at": "2026-11-11T01:17:37",
+      "ingested_at": "2026-11-11T19:55:33",
+      "last_checked_at": "2026-11-11T19:56:25",
       "status": "unchanged"
     }
   },
-  "last_run_at": "2026-11-11T01:17:37"
+  "last_run_at": "2026-11-11T19:56:25"
 }

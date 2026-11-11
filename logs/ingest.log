@@ -1,0 +1,22 @@
+2026-11-11 19:55:33,672 [INFO] === Starting Ingestion (Raw -> Bronze) ===
+2026-11-11 19:55:33,673 [INFO] --- [bkk_temperature] Daily mean 2 m air temperature, Bangkok grid cell, 2016-present
+2026-11-11 19:55:33,689 [INFO]     UNCHANGED | origin=retained | 63,570 bytes | sha256=a5c4b784a35a
+2026-11-11 19:55:33,690 [INFO]     station metadata -> data\bronze\ref_temperature_stations.csv (lat=13.743409, lon=100.495865)
+2026-11-11 19:55:33,690 [INFO] --- [mea_electricity] Units sold (million kWh) per MEA district, yearly 2559-2568 B.E. + monthly
+2026-11-11 19:55:33,702 [INFO]     UNCHANGED | origin=retained | 8,900 bytes | sha256=297fc96c5671
+2026-11-11 19:55:33,702 [INFO] --- [ref_mea_districts] MEA district names (TH/EN), province, approx. lat/lon for spatial join
+2026-11-11 19:55:33,703 [INFO]     UNCHANGED | origin=reference:data\reference\mea_districts.csv | 2,150 bytes | sha256=f6232288d6ed
+2026-11-11 19:55:33,704 [INFO] Manifest saved -> data\bronze\_manifest.json
+2026-11-11 19:55:33,704 [INFO] === Ingestion Stage Finished Successfully ===
+
+2026-11-11 19:56:25,110 [INFO] === Starting Ingestion (Raw -> Bronze) ===
+2026-11-11 19:56:25,116 [INFO] --- [bkk_temperature] Daily mean 2 m air temperature, Bangkok grid cell, 2016-present
+2026-11-11 19:56:25,118 [INFO]     UNCHANGED | origin=retained | 63,570 bytes | sha256=a5c4b784a35a
+2026-11-11 19:56:25,119 [INFO]     station metadata -> data\bronze\ref_temperature_stations.csv (lat=13.743409, lon=100.495865)
+2026-11-11 19:56:25,119 [INFO] --- [mea_electricity] Units sold (million kWh) per MEA district, yearly 2559-2568 B.E. + monthly
+2026-11-11 19:56:25,120 [INFO]     UNCHANGED | origin=retained | 8,900 bytes | sha256=297fc96c5671
+2026-11-11 19:56:25,120 [INFO] --- [ref_mea_districts] MEA district names (TH/EN), province, approx. lat/lon for spatial join
+2026-11-11 19:56:25,120 [INFO]     UNCHANGED | origin=reference:data\reference\mea_districts.csv | 2,150 bytes | sha256=f6232288d6ed
+2026-11-11 19:56:25,121 [INFO] Manifest saved -> data\bronze\_manifest.json
+2026-11-11 19:56:25,121 [INFO] === Ingestion Stage Finished Successfully ===
+
