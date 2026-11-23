@@ -1,25 +1,26 @@
 # Urban Heat & Energy Burden (CS341 Term Project)
 
-ระบบ Data Pipeline สำหรับวิเคราะห์ความสัมพันธ์ระหว่างความร้อนและภาระค่าใช้จ่ายด้านพลังงานของครัวเรือนในเขตเมือง (สำหรับส่งงานเฟส 2: Checkpoint - Working Critical-Path Pipeline)
+ระบบ Data Pipeline แบบอัตโนมัติ (Local-first Medallion Architecture) สำหรับวิเคราะห์ความสัมพันธ์ระหว่างความร้อนในเมือง ลักษณะทางกายภาพของที่อยู่อาศัย และภาระค่าใช้จ่ายด้านพลังงานของครัวเรือนในกรุงเทพมหานคร (Final Version)
 
-## 📂 โครงสร้างโฟลเดอร์ (Project Structure)
-โปรเจกต์นี้ใช้การจัดเก็บข้อมูลแบบ Medallion Architecture เพื่อให้ง่ายต่อการประมวลผลแบบ Local:
+## สถาปัตยกรรมระบบ (Data Architecture v3)
+![Data Architecture v3](docs/architecture_v3.png)
 
-* `data/bronze/` : เก็บข้อมูลดิบ (Raw Data) ที่ดึงมาจากแหล่งต้นทาง
-* `data/silver/` : เก็บข้อมูลที่ผ่านการทำความสะอาดและตรวจสอบคุณภาพ (Validated & Cleaned)
-* `data/gold/` : เก็บข้อมูลที่ผ่านการ Join และพร้อมนำไปใช้วิเคราะห์ (Curated Data)
-* `scripts/` : โฟลเดอร์สำหรับเก็บไฟล์สคริปต์ Python (`.py`) ของ Data Pipeline
-* `notebooks/` : โฟลเดอร์สำหรับเก็บไฟล์ Jupyter Notebook สำหรับทำ EDA และสรุปผล
+## โครงสร้างโฟลเดอร์ (Project Structure)
+* `data/bronze/` : เก็บข้อมูลดิบ (Raw Data) จาก Open-Meteo API, การไฟฟ้านครหลวง (MEA) และแบบสำรวจครัวเรือนโครงการ ThaiCI (88 ครัวเรือน เขตหลักสี่) พร้อมไฟล์ `_manifest.json`
+* `data/silver/` : เก็บข้อมูลที่ผ่านการทำความสะอาด สร้างตัวแปรใหม่ (`summer_energy_burden_pct`) และตรวจสอบคุณภาพด้วย Pandera ในรูปแบบ `Apache Parquet`
+* `data/gold/` : เก็บตารางวิเคราะห์เชิงลึก (Star Schema) ที่เชื่อมโยงข้อมูลระดับเขตและระดับครัวเรือนผ่านรหัสเขตหลักสี่ (`district_id = 1041`)
+* `scripts/` : โค้ดสคริปต์ Python ของท่อส่งข้อมูลทั้งหมด
+* `docs/` : เอกสารพจนานุกรมข้อมูล (`ThaiCI_Household_Questionaire.docx`) และแผนภาพสถาปัตยกรรมระบบ (`architecture_v3.png`)
+* `notebooks/` : ไฟล์ Jupyter Notebook สำหรับสำรวจข้อมูล (EDA) และสร้างกราฟสรุปผล Q1–Q2
 * `requirements.txt` : รายชื่อ Library ที่ต้องใช้ในโปรเจกต์
 
-## 🚀 วิธีการติดตั้ง (Installation)
+## วิธีการติดตั้ง (Installation)
 
-เพื่อให้ทุกคนในทีมมี Environment ที่ตรงกัน รบกวนทำตามขั้นตอนนี้:
-
-1. **Clone Repository** มาที่เครื่องตัวเอง
+1. **Clone Repository**
    ```bash
-   git clone [https://github.com/chaloemwong109-lab/urban-heat-energy-burden.git](https://github.com/chaloemwong109-lab/urban-heat-energy-burden.git)
+   git clone https://github.com/chaloemwong109-lab/urban-heat-energy-burden.git
    cd urban-heat-energy-burden
+   ```
 
 2. **สร้างและเปิดใช้งาน Virtual Environment**
    * **สำหรับ Windows:**
@@ -36,33 +37,21 @@
 3. **ติดตั้ง Library ที่จำเป็น**
    ```bash
    pip install -r requirements.txt
+   ```
 
-## ⚙️ วิธีการรัน Data Pipeline
-
-โปรเจกต์นี้ออกแบบมาให้รัน Pipeline แบบ End-to-End (ตั้งแต่ดึงข้อมูลจนจบที่ Gold Zone) ผ่านคำสั่งเดียว:
-
+## วิธีการรัน Data Pipeline (End-to-End Reproducibility)
+รันคำสั่งเดียวเพื่อประมวลผลข้อมูลทั้งหมดตั้งแต่ Bronze จนถึง Gold Zone:
 ```bash
-python run_pipeline.py
-  ```
+python scripts/run_pipeline.py
+```
+
 ระบบจะทำงานตามลำดับดังนี้:
+1. `scripts/01_ingest.py` : ดึงข้อมูลสภาพอากาศ (Open-Meteo) และค่าไฟฟ้า กฟน. (MEA) เข้าสู่ Bronze Zone
+2. `scripts/01_ingest_validate_survey.py` : นำเข้าแบบสำรวจครัวเรือน ThaiCI (88 ครัวเรือน) คำนวณ `summer_energy_burden_pct` และตรวจสอบคุณภาพผ่าน Pandera Quality Gate ลงสู่ `data/silver/clean_household_survey.parquet`
+3. `scripts/02_validate_clean.py` : ทำความสะอาดและตรวจสอบคุณภาพข้อมูลสภาพอากาศและค่าไฟฟ้าลงสู่ Silver Zone
+4. `scripts/03_transform.py` : ทำ Spatial/Temporal Join คำนวณค่า CDD และสร้างตาราง Fact/Dimension (Star Schema) ลงใน Gold Zone
 
-Ingestion (01_ingest.py): ดึงข้อมูลอุณหภูมิและข้อมูลการใช้ไฟฟ้าเข้าสู่ Bronze Zone
-
-Validation & Cleaning (02_validate_clean.py): ตรวจสอบคุณภาพข้อมูล (Data Quality) ด้วย Pandera และบันทึกลง Silver Zone
-
-Transformation (03_transform.py): ทำ Spatial/Temporal Join, คำนวณค่า CDD และสร้างตาราง Fact/Dimension (Star Schema) ลงใน Gold Zone
-
-## การดูผลลัพธ์และ Demo (Checkpoint 2)
-สำหรับการดูผลลัพธ์ของข้อมูลที่พร้อมใช้งาน และกราฟความสัมพันธ์เพื่อตอบคำถาม Proposal:
-
-เปิดไฟล์ demo_checkpoint.ipynb ผ่าน VS Code หรือ Jupyter Notebook
-
-เลือก Kernel เป็น venv ที่เราสร้างไว้
-
-กดรันทุก Cell เพื่อดู Data Schema ของ Gold Zone และดูกราฟ Scatter Plot แสดงความสัมพันธ์ระหว่าง อุณหภูมิความร้อนสะสม (CDD) กับ ปริมาณการใช้ไฟฟ้า (Million kWh)
-
-## Architecture Diagram (Data Flow)
-
-แผนภาพแสดงสถาปัตยกรรมและการไหลของข้อมูล (Data Flow) ในระบบปัจจุบัน ตั้งแต่ Data Sources จนถึงส่วน Analytics:
-
-![Architecture Diagram](images/architecture_diagram.png)
+## การดูผลลัพธ์และ Visualization (Q1 & Q2)
+1. เปิดไฟล์ Jupyter Notebook ในโฟลเดอร์ `notebooks/` ผ่าน VS Code หรือ Jupyter Notebook
+2. เลือก Kernel เป็น `venv` ที่สร้างไว้
+3. กดรันทุก Cell เพื่อดู Data Schema ของชั้น Gold และกราฟวิเคราะห์ความสัมพันธ์ระหว่างลักษณะทางกายภาพของที่อยู่อาศัย ความร้อน และภาระค่าใช้จ่ายด้านพลังงานของครัวเรือน
