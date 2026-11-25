@@ -20,3 +20,58 @@
 2026-11-11 19:56:25,121 [INFO] Manifest saved -> data\bronze\_manifest.json
 2026-11-11 19:56:25,121 [INFO] === Ingestion Stage Finished Successfully ===
 
+2026-11-12 16:06:42,967 [INFO] === Starting Ingestion (Raw -> Bronze) ===
+2026-11-12 16:06:42,981 [INFO] --- [bkk_temperature] Daily mean 2 m air temperature, Bangkok grid cell, 2016-present
+2026-11-12 16:06:43,001 [INFO]     UNCHANGED | origin=retained | 67,538 bytes | sha256=ec8c1c267dfb
+2026-11-12 16:06:43,003 [INFO]     station metadata -> data\bronze\ref_temperature_stations.csv (lat=13.743409, lon=100.495865)
+2026-11-12 16:06:43,003 [INFO] --- [mea_electricity] Units sold (million kWh) per MEA district, yearly 2559-2568 B.E. + monthly
+2026-11-12 16:06:43,034 [INFO]     UNCHANGED | origin=retained | 8,900 bytes | sha256=297fc96c5671
+2026-11-12 16:06:43,034 [INFO] --- [ref_mea_districts] MEA district names (TH/EN), province, approx. lat/lon for spatial join
+2026-11-12 16:06:43,052 [INFO]     UNCHANGED | origin=reference:data\reference\mea_districts.csv | 2,150 bytes | sha256=f6232288d6ed
+2026-11-12 16:06:43,055 [INFO] Manifest saved -> data\bronze\_manifest.json
+2026-11-12 16:06:43,055 [INFO] === Ingestion Stage Finished Successfully ===
+
+2026-11-25 14:53:03,765 [INFO] === Starting Ingestion (Raw -> Bronze) ===
+2026-11-25 14:53:03,766 [INFO] --- [bkk_temperature] Daily mean 2 m air temperature, Bangkok grid cell, 2016-present
+2026-11-25 14:53:03,768 [INFO]     UNCHANGED | origin=retained | 67,538 bytes | sha256=ec8c1c267dfb
+2026-11-25 14:53:03,769 [INFO]     station metadata -> data\bronze\ref_temperature_stations.csv (lat=13.743409, lon=100.495865)
+2026-11-25 14:53:03,769 [INFO] --- [mea_electricity] Units sold (million kWh) per MEA district, yearly 2559-2568 B.E. + monthly
+2026-11-25 14:53:03,770 [INFO]     UNCHANGED | origin=retained | 8,900 bytes | sha256=297fc96c5671
+2026-11-25 14:53:03,770 [INFO] --- [ref_mea_districts] MEA district names (TH/EN), province, approx. lat/lon for spatial join
+2026-11-25 14:53:03,771 [INFO]     UNCHANGED | origin=reference:data\reference\mea_districts.csv | 2,150 bytes | sha256=f6232288d6ed
+2026-11-25 14:53:03,773 [INFO] Manifest saved -> data\bronze\_manifest.json
+2026-11-25 14:53:03,773 [INFO] === Ingestion Stage Finished Successfully ===
+
+2026-11-25 14:55:21,696 [INFO] === Starting Ingestion (Raw -> Bronze) ===
+2026-11-25 14:55:21,708 [INFO] --- [bkk_temperature] Daily mean 2 m air temperature, Bangkok grid cell, 2016-present
+2026-11-25 14:55:21,722 [INFO]     UNCHANGED | origin=retained | 67,538 bytes | sha256=ec8c1c267dfb
+2026-11-25 14:55:21,723 [INFO]     station metadata -> data\bronze\ref_temperature_stations.csv (lat=13.743409, lon=100.495865)
+2026-11-25 14:55:21,723 [INFO] --- [mea_electricity] Units sold (million kWh) per MEA district, yearly 2559-2568 B.E. + monthly
+2026-11-25 14:55:21,740 [INFO]     UNCHANGED | origin=retained | 8,900 bytes | sha256=297fc96c5671
+2026-11-25 14:55:21,740 [INFO] --- [ref_mea_districts] MEA district names (TH/EN), province, approx. lat/lon for spatial join
+2026-11-25 14:55:21,749 [INFO]     UNCHANGED | origin=reference:data\reference\mea_districts.csv | 2,150 bytes | sha256=f6232288d6ed
+2026-11-25 14:55:21,750 [INFO] Manifest saved -> data\bronze\_manifest.json
+2026-11-25 14:55:21,751 [INFO] === Ingestion Stage Finished Successfully ===
+
+2026-11-25 14:56:45,790 [INFO] === Starting Ingestion (Raw -> Bronze) ===
+2026-11-25 14:56:45,802 [INFO] --- [bkk_temperature] Daily mean 2 m air temperature, Bangkok grid cell, 2016-present
+2026-11-25 14:56:45,805 [INFO]     UNCHANGED | origin=retained | 67,538 bytes | sha256=ec8c1c267dfb
+2026-11-25 14:56:45,806 [INFO]     station metadata -> data\bronze\ref_temperature_stations.csv (lat=13.743409, lon=100.495865)
+2026-11-25 14:56:45,806 [INFO] --- [mea_electricity] Units sold (million kWh) per MEA district, yearly 2559-2568 B.E. + monthly
+2026-11-25 14:56:45,807 [INFO]     UNCHANGED | origin=retained | 8,900 bytes | sha256=297fc96c5671
+2026-11-25 14:56:45,807 [INFO] --- [ref_mea_districts] MEA district names (TH/EN), province, approx. lat/lon for spatial join
+2026-11-25 14:56:45,808 [INFO]     UNCHANGED | origin=reference:data\reference\mea_districts.csv | 2,150 bytes | sha256=f6232288d6ed
+2026-11-25 14:56:45,809 [INFO] Manifest saved -> data\bronze\_manifest.json
+2026-11-25 14:56:45,809 [INFO] === Ingestion Stage Finished Successfully ===
+
+2026-11-25 15:27:38,809 [INFO] === Starting Ingestion (Raw -> Bronze) ===
+2026-11-25 15:27:38,809 [INFO] --- [bkk_temperature] Daily mean 2 m air temperature, Bangkok grid cell, 2016-present
+2026-11-25 15:27:38,811 [INFO]     UNCHANGED | origin=retained | 67,538 bytes | sha256=ec8c1c267dfb
+2026-11-25 15:27:38,813 [INFO]     station metadata -> data\bronze\ref_temperature_stations.csv (lat=13.743409, lon=100.495865)
+2026-11-25 15:27:38,813 [INFO] --- [mea_electricity] Units sold (million kWh) per MEA district, yearly 2559-2568 B.E. + monthly
+2026-11-25 15:27:38,814 [INFO]     UNCHANGED | origin=retained | 8,900 bytes | sha256=297fc96c5671
+2026-11-25 15:27:38,814 [INFO] --- [ref_mea_districts] MEA district names (TH/EN), province, approx. lat/lon for spatial join
+2026-11-25 15:27:38,814 [INFO]     UNCHANGED | origin=reference:data\reference\mea_districts.csv | 2,150 bytes | sha256=f6232288d6ed
+2026-11-25 15:27:38,816 [INFO] Manifest saved -> data\bronze\_manifest.json
+2026-11-25 15:27:38,816 [INFO] === Ingestion Stage Finished Successfully ===
+

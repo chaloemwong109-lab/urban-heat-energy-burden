@@ -1,0 +1,63 @@
+2026-11-25 14:55:21,328 - INFO - 🚀 Starting Data Pipeline for 'Heat & Energy Burden'
+2026-11-25 14:55:21,329 - INFO - ▶️ Executing: scripts/01_ingest.py
+2026-11-25 14:55:21,773 - INFO - Output:
+2026-11-25 14:55:21,696 [INFO] === Starting Ingestion (Raw -> Bronze) ===
+2026-11-25 14:55:21,708 [INFO] --- [bkk_temperature] Daily mean 2 m air temperature, Bangkok grid cell, 2016-present
+2026-11-25 14:55:21,722 [INFO]     UNCHANGED | origin=retained | 67,538 bytes | sha256=ec8c1c267dfb
+2026-11-25 14:55:21,723 [INFO]     station metadata -> data\bronze\ref_temperature_stations.csv (lat=13.743409, lon=100.495865)
+2026-11-25 14:55:21,723 [INFO] --- [mea_electricity] Units sold (million kWh) per MEA district, yearly 2559-2568 B.E. + monthly
+2026-11-25 14:55:21,740 [INFO]     UNCHANGED | origin=retained | 8,900 bytes | sha256=297fc96c5671
+2026-11-25 14:55:21,740 [INFO] --- [ref_mea_districts] MEA district names (TH/EN), province, approx. lat/lon for spatial join
+2026-11-25 14:55:21,749 [INFO]     UNCHANGED | origin=reference:data\reference\mea_districts.csv | 2,150 bytes | sha256=f6232288d6ed
+2026-11-25 14:55:21,750 [INFO] Manifest saved -> data\bronze\_manifest.json
+2026-11-25 14:55:21,751 [INFO] === Ingestion Stage Finished Successfully ===
+2026-11-25 14:55:21,774 - INFO - ✅ Successfully finished: scripts/01_ingest.py
+2026-11-25 14:55:21,774 - INFO - ▶️ Executing: scripts/01_ingest_validate_survey.py
+2026-11-25 14:55:27,284 - ERROR - ❌ Error occurred while running scripts/01_ingest_validate_survey.py
+2026-11-25 14:55:27,284 - ERROR - Error Details: C:\Data341\urban-heat-energy-burden\venv\Lib\site-packages\pyspark\pandas\__init__.py:33: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+  require_minimum_pandas_version()
+C:\Data341\urban-heat-energy-burden\venv\Lib\site-packages\pyspark\pandas\__init__.py:33: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+  require_minimum_pandas_version()
+C:\Data341\urban-heat-energy-burden\scripts\01_ingest_validate_survey.py:124: FutureWarning: Importing pandas-specific classes and functions from the
+top-level pandera module will be **removed in a future version of pandera**.
+If you're using pandera to validate pandas objects, we highly recommend updating
+your import:
+
+```
+# old import
+import pandera as pa
+
+# new import
+import pandera.pandas as pa
+```
+
+If you're using pandera to validate objects from other compatible libraries
+like pyspark or polars, see the supported libraries section of the documentation
+for more information on how to import pandera:
+
+https://pandera.readthedocs.io/en/stable/supported_libraries.html
+
+To disable this warning, set the environment variable:
+
+```
+export DISABLE_PANDERA_IMPORT_WARNING=True
+```
+
+  survey_schema = DataFrameSchema(
+2026-11-25 14:55:25,652 - INFO - Starting Survey Ingestion & Cleaning...
+2026-11-25 14:55:26,200 - INFO - Loaded raw survey data: 88 rows, 343 columns
+C:\Data341\urban-heat-energy-burden\scripts\01_ingest_validate_survey.py:90: Pandas4Warning: For backward compatibility, 'str' dtypes are included by select_dtypes when 'object' dtype is specified. This behavior is deprecated and will be removed in a future version. Explicitly pass 'str' to `include` to select them, or to `exclude` to remove them and silence this warning.
+See https://pandas.pydata.org/docs/dev/user_guide/migration.html#string-migration-select-dtypes for details on how to write code that works with pandas 2 and 3.
+  str_cols = df.select_dtypes(include="object").columns
+C:\Data341\urban-heat-energy-burden\venv\Lib\site-packages\pyspark\pandas\__init__.py:33: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+  require_minimum_pandas_version()
+2026-11-25 14:55:27,112 - INFO - \u2705 Pandera Validation PASSED! Saved 88 clean household records to data/silver/clean_household_survey.parquet
+Traceback (most recent call last):
+  File "C:\Data341\urban-heat-energy-burden\scripts\01_ingest_validate_survey.py", line 160, in <module>
+    print("\n--- \u0e2a\u0e23\u0e38\u0e1b\u0e15\u0e31\u0e27\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2a\u0e30\u0e2d\u0e32\u0e14\u0e43\u0e19 Silver Zone ---")
+  File "C:\Users\Asus\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 6-30: character maps to <undefined>
+2026-11-25 14:55:27,285 - ERROR - 🛑 Pipeline stopped due to error.
+2026-11-25 14:55:27,285 - INFO - 🎉 Pipeline execution completed.

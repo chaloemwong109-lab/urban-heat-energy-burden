@@ -25,3 +25,40 @@
 2026-11-11 19:56:26,957 [INFO] Saved: C:\urban-heat-energy-burden\data\silver\clean_electricity.parquet
 2026-11-11 19:56:26,957 [INFO] === Validation & Cleaning Stage Finished Successfully ===
 
+2026-11-12 16:06:51,658 [INFO] === Starting Data Validation & Cleansing Pipeline ===
+2026-11-12 16:06:51,659 [INFO] --- [START] Validating & Cleaning Temperature Data ---
+2026-11-12 16:06:53,252 [INFO] [Temperature] Pandera Validation PASSED (3964 rows).
+2026-11-12 16:06:53,252 [INFO] --- [START] Validating & Cleaning MEA Electricity Data ---
+2026-11-12 16:06:53,293 [INFO] [Electricity] Pandera Validation PASSED (180 rows).
+2026-11-12 16:06:53,684 [INFO] Saved: C:\Data341\urban-heat-energy-burden\data\silver\clean_temperature.parquet
+2026-11-12 16:06:53,684 [INFO] Saved: C:\Data341\urban-heat-energy-burden\data\silver\clean_electricity.parquet
+2026-11-12 16:06:53,684 [INFO] === Validation & Cleaning Stage Finished Successfully ===
+
+2026-11-25 14:53:08,603 - INFO - Starting Survey Ingestion & Cleaning...
+2026-11-25 14:55:25,652 - INFO - Starting Survey Ingestion & Cleaning...
+2026-11-25 14:55:26,200 - INFO - Loaded raw survey data: 88 rows, 343 columns
+2026-11-25 14:55:27,112 - INFO - ✅ Pandera Validation PASSED! Saved 88 clean household records to data/silver/clean_household_survey.parquet
+2026-11-25 14:56:47,411 - INFO - Starting Survey Ingestion & Cleaning...
+2026-11-25 14:56:48,025 - INFO - Loaded raw survey data: 88 rows, 343 columns
+2026-11-25 14:56:48,262 - INFO - ✅ Pandera Validation PASSED! Saved 88 clean household records to data/silver/clean_household_survey.parquet
+2026-11-25 14:56:49,678 [INFO] === Starting Data Validation & Cleansing Pipeline ===
+2026-11-25 14:56:49,678 [INFO] --- [START] Validating & Cleaning Temperature Data ---
+2026-11-25 14:56:49,864 [INFO] [Temperature] Pandera Validation PASSED (3964 rows).
+2026-11-25 14:56:49,864 [INFO] --- [START] Validating & Cleaning MEA Electricity Data ---
+2026-11-25 14:56:49,884 [INFO] [Electricity] Pandera Validation PASSED (180 rows).
+2026-11-25 14:56:49,931 [INFO] Saved: C:\Data341\urban-heat-energy-burden\data\silver\clean_temperature.parquet
+2026-11-25 14:56:49,931 [INFO] Saved: C:\Data341\urban-heat-energy-burden\data\silver\clean_electricity.parquet
+2026-11-25 14:56:49,932 [INFO] === Validation & Cleaning Stage Finished Successfully ===
+
+2026-11-25 15:27:40,513 - INFO - Starting Survey Ingestion & Cleaning...
+2026-11-25 15:27:41,157 - INFO - Loaded raw survey data: 88 rows, 343 columns
+2026-11-25 15:27:41,411 - INFO - ✅ Pandera Validation PASSED! Saved 88 clean household records to data/silver/clean_household_survey.parquet
+2026-11-25 15:27:43,011 [INFO] === Starting Data Validation & Cleansing Pipeline ===
+2026-11-25 15:27:43,012 [INFO] --- [START] Validating & Cleaning Temperature Data ---
+2026-11-25 15:27:43,184 [INFO] [Temperature] Pandera Validation PASSED (3964 rows).
+2026-11-25 15:27:43,184 [INFO] --- [START] Validating & Cleaning MEA Electricity Data ---
+2026-11-25 15:27:43,198 [INFO] [Electricity] Pandera Validation PASSED (180 rows).
+2026-11-25 15:27:43,245 [INFO] Saved: C:\Data341\urban-heat-energy-burden\data\silver\clean_temperature.parquet
+2026-11-25 15:27:43,246 [INFO] Saved: C:\Data341\urban-heat-energy-burden\data\silver\clean_electricity.parquet
+2026-11-25 15:27:43,246 [INFO] === Validation & Cleaning Stage Finished Successfully ===
+

@@ -25,3 +25,84 @@
 2026-11-11 19:56:28,621 [INFO]     PREVIEW Pearson r(CDD, total consumption) = 0.667 (n=10 years); excluding COVID years = 0.811  -- small n, indicative only
 2026-11-11 19:56:28,626 [INFO] === Transformation Stage Finished Successfully ===
 
+2026-11-12 16:06:56,324 [INFO] === Starting Transformation & Integration (Silver -> Gold) ===
+2026-11-12 16:06:56,356 [INFO] [CHECK PASSED] district reference has unique names (18 districts)
+2026-11-12 16:06:56,357 [INFO] [CHECK PASSED] station reference has unique ids (1 station(s))
+2026-11-12 16:06:56,358 [INFO] [CHECK PASSED] all district coordinates are inside the Bangkok-metro bounding box
+2026-11-12 16:06:56,359 [INFO] [CHECK PASSED] all station coordinates are inside the Bangkok-metro bounding box
+2026-11-12 16:06:56,359 [INFO] --- [Spatial] district -> nearest temperature station (sjoin_nearest) ---
+2026-11-12 16:06:56,461 [INFO] [CHECK PASSED] every district is linked to a temperature station
+2026-11-12 16:06:56,466 [INFO]     district->station distance: min 0.35 km, median 15.24 km, max 31.14 km
+2026-11-12 16:06:56,704 [INFO] --- [Temporal] daily temperature -> monthly & yearly heat features ---
+2026-11-12 16:06:56,754 [INFO] [CHECK PASSED] temperature has one row per station per day
+2026-11-12 16:06:56,811 [INFO]     years with < 95% temperature coverage (excluded from fact): [2026]
+2026-11-12 16:06:56,811 [INFO] --- [Integration] electricity x district dimension x yearly heat ---
+2026-11-12 16:06:56,836 [INFO] [CHECK PASSED] all electricity districts match the district dimension (unmatched: none)
+2026-11-12 16:06:56,839 [INFO] [CHECK PASSED] electricity has one row per district per year
+2026-11-12 16:06:56,871 [INFO] [CHECK PASSED] fact row count = joinable electricity rows (180/180)
+2026-11-12 16:06:56,877 [INFO] [CHECK PASSED] no nulls in key metrics (consumption, mean_temp_c, cdd, station_id)
+2026-11-12 16:06:56,887 [INFO] --- [Gold] writing outputs ---
+2026-11-12 16:06:56,896 [INFO]     saved data\gold\dim_district.parquet (18 rows)
+2026-11-12 16:06:56,903 [INFO]     saved data\gold\agg_temperature_monthly.parquet (131 rows)
+2026-11-12 16:06:56,910 [INFO]     saved data\gold\agg_temperature_yearly.parquet (11 rows)
+2026-11-12 16:06:56,917 [INFO]     saved data\gold\fact_district_energy_heat_yearly.parquet (180 rows)
+2026-11-12 16:06:56,922 [INFO]     saved data\gold\agg_year_energy_heat.parquet (10 rows)
+2026-11-12 16:06:57,977 [INFO] Created 18 records
+2026-11-12 16:06:57,978 [INFO]     saved data\gold\dim_district.geojson (for maps)
+2026-11-12 16:06:57,980 [INFO]     PREVIEW Pearson r(CDD, total consumption) = 0.667 (n=10 years); excluding COVID years = 0.811  -- small n, indicative only
+2026-11-12 16:06:57,990 [INFO] === Transformation Stage Finished Successfully ===
+
+2026-11-25 14:56:51,259 [INFO] === Starting Transformation & Integration (Silver -> Gold) ===
+2026-11-25 14:56:51,279 [INFO] [CHECK PASSED] district reference has unique names (18 districts)
+2026-11-25 14:56:51,280 [INFO] [CHECK PASSED] station reference has unique ids (1 station(s))
+2026-11-25 14:56:51,280 [INFO] [CHECK PASSED] all district coordinates are inside the Bangkok-metro bounding box
+2026-11-25 14:56:51,281 [INFO] [CHECK PASSED] all station coordinates are inside the Bangkok-metro bounding box
+2026-11-25 14:56:51,281 [INFO] --- [Spatial] district -> nearest temperature station (sjoin_nearest) ---
+2026-11-25 14:56:51,331 [INFO] [CHECK PASSED] every district is linked to a temperature station
+2026-11-25 14:56:51,333 [INFO]     district->station distance: min 0.35 km, median 15.24 km, max 31.14 km
+2026-11-25 14:56:51,484 [INFO] --- [Temporal] daily temperature -> monthly & yearly heat features ---
+2026-11-25 14:56:51,519 [INFO] [CHECK PASSED] temperature has one row per station per day
+2026-11-25 14:56:51,554 [INFO]     years with < 95% temperature coverage (excluded from fact): [2026]
+2026-11-25 14:56:51,554 [INFO] --- [Integration] electricity x district dimension x yearly heat ---
+2026-11-25 14:56:51,568 [INFO] [CHECK PASSED] all electricity districts match the district dimension (unmatched: none)
+2026-11-25 14:56:51,571 [INFO] [CHECK PASSED] electricity has one row per district per year
+2026-11-25 14:56:51,590 [INFO] [CHECK PASSED] fact row count = joinable electricity rows (180/180)
+2026-11-25 14:56:51,593 [INFO] [CHECK PASSED] no nulls in key metrics (consumption, mean_temp_c, cdd, station_id)
+2026-11-25 14:56:51,600 [INFO] --- [Gold] writing outputs ---
+2026-11-25 14:56:51,605 [INFO]     saved data\gold\dim_district.parquet (18 rows)
+2026-11-25 14:56:51,609 [INFO]     saved data\gold\agg_temperature_monthly.parquet (131 rows)
+2026-11-25 14:56:51,614 [INFO]     saved data\gold\agg_temperature_yearly.parquet (11 rows)
+2026-11-25 14:56:51,618 [INFO]     saved data\gold\fact_district_energy_heat_yearly.parquet (180 rows)
+2026-11-25 14:56:51,622 [INFO]     saved data\gold\agg_year_energy_heat.parquet (10 rows)
+2026-11-25 14:56:52,155 [INFO] Created 18 records
+2026-11-25 14:56:52,155 [INFO]     saved data\gold\dim_district.geojson (for maps)
+2026-11-25 14:56:52,158 [INFO]     PREVIEW Pearson r(CDD, total consumption) = 0.667 (n=10 years); excluding COVID years = 0.811  -- small n, indicative only
+2026-11-25 14:56:52,166 [INFO] === Transformation Stage Finished Successfully ===
+
+2026-11-25 15:27:44,317 [INFO] === Starting Transformation & Integration (Silver -> Gold) ===
+2026-11-25 15:27:44,334 [INFO] [CHECK PASSED] district reference has unique names (18 districts)
+2026-11-25 15:27:44,334 [INFO] [CHECK PASSED] station reference has unique ids (1 station(s))
+2026-11-25 15:27:44,335 [INFO] [CHECK PASSED] all district coordinates are inside the Bangkok-metro bounding box
+2026-11-25 15:27:44,335 [INFO] [CHECK PASSED] all station coordinates are inside the Bangkok-metro bounding box
+2026-11-25 15:27:44,335 [INFO] --- [Spatial] district -> nearest temperature station (sjoin_nearest) ---
+2026-11-25 15:27:44,354 [INFO] [CHECK PASSED] every district is linked to a temperature station
+2026-11-25 15:27:44,355 [INFO]     district->station distance: min 0.35 km, median 15.24 km, max 31.14 km
+2026-11-25 15:27:44,391 [INFO] --- [Temporal] daily temperature -> monthly & yearly heat features ---
+2026-11-25 15:27:44,411 [INFO] [CHECK PASSED] temperature has one row per station per day
+2026-11-25 15:27:44,429 [INFO]     years with < 95% temperature coverage (excluded from fact): [2026]
+2026-11-25 15:27:44,429 [INFO] --- [Integration] electricity x district dimension x yearly heat ---
+2026-11-25 15:27:44,445 [INFO] [CHECK PASSED] all electricity districts match the district dimension (unmatched: none)
+2026-11-25 15:27:44,447 [INFO] [CHECK PASSED] electricity has one row per district per year
+2026-11-25 15:27:44,466 [INFO] [CHECK PASSED] fact row count = joinable electricity rows (180/180)
+2026-11-25 15:27:44,470 [INFO] [CHECK PASSED] no nulls in key metrics (consumption, mean_temp_c, cdd, station_id)
+2026-11-25 15:27:44,474 [INFO] --- [Gold] writing outputs ---
+2026-11-25 15:27:44,478 [INFO]     saved data\gold\dim_district.parquet (18 rows)
+2026-11-25 15:27:44,482 [INFO]     saved data\gold\agg_temperature_monthly.parquet (131 rows)
+2026-11-25 15:27:44,485 [INFO]     saved data\gold\agg_temperature_yearly.parquet (11 rows)
+2026-11-25 15:27:44,489 [INFO]     saved data\gold\fact_district_energy_heat_yearly.parquet (180 rows)
+2026-11-25 15:27:44,493 [INFO]     saved data\gold\agg_year_energy_heat.parquet (10 rows)
+2026-11-25 15:27:44,532 [INFO] Created 18 records
+2026-11-25 15:27:44,533 [INFO]     saved data\gold\dim_district.geojson (for maps)
+2026-11-25 15:27:44,534 [INFO]     PREVIEW Pearson r(CDD, total consumption) = 0.667 (n=10 years); excluding COVID years = 0.811  -- small n, indicative only
+2026-11-25 15:27:44,541 [INFO] === Transformation Stage Finished Successfully ===
+

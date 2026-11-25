@@ -6,11 +6,11 @@
       "provider": "Open-Meteo Historical Weather API (ERA5 reanalysis)",
       "origin": "retained",
       "url": null,
-      "sha256": "a5c4b784a35af8aec28204095de1657945ddbd8c04a2732a2f21cf595e7c0052",
-      "bytes": 63570,
+      "sha256": "ec8c1c267dfb876544454680e6a9bdb8d9aacc1915dfb1d5ee5a3b3c43b5259b",
+      "bytes": 67538,
       "lines": 3968,
-      "ingested_at": "2026-11-11T01:11:51",
-      "last_checked_at": "2026-11-11T19:56:25",
+      "ingested_at": "2026-11-12T16:06:43",
+      "last_checked_at": "2026-11-25T15:27:38",
       "status": "unchanged"
     },
     "mea_electricity": {
@@ -23,7 +23,7 @@
       "bytes": 8900,
       "lines": 47,
       "ingested_at": "2026-11-11T19:55:33",
-      "last_checked_at": "2026-11-11T19:56:25",
+      "last_checked_at": "2026-11-25T15:27:38",
       "status": "unchanged"
     },
     "ref_mea_districts": {
@@ -36,9 +36,9 @@
       "bytes": 2150,
       "lines": 19,
       "ingested_at": "2026-11-11T19:55:33",
-      "last_checked_at": "2026-11-11T19:56:25",
+      "last_checked_at": "2026-11-25T15:27:38",
       "status": "unchanged"
     }
   },
-  "last_run_at": "2026-11-11T19:56:25"
+  "last_run_at": "2026-11-25T15:27:38"
 }

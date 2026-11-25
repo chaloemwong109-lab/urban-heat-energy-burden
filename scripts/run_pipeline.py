@@ -20,10 +20,12 @@ logging.basicConfig(
 
 # 2. กำหนดลำดับไฟล์สคริปต์ที่ต้องรัน (อ้างอิงจากโฟลเดอร์ scripts/)
 scripts_to_run = [
-    "scripts/01_ingest.py",
-    "scripts/01_ingest_validate_survey.py",
-    "scripts/02_validate_clean.py",
-    "scripts/03_transform.py",
+"scripts/01_ingest.py",
+"scripts/01_ingest_validate_survey.py",
+"scripts/02_validate_clean.py",
+"scripts/03_transform.py",
+"scripts/03b_transform_survey_gold.py",
+"scripts/04_upload_s3.py",
 ]
 
 def run_pipeline():

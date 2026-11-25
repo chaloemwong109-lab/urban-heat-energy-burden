@@ -1,0 +1,67 @@
+2026-11-25 14:56:45,464 - INFO - 🚀 Starting Data Pipeline for 'Heat & Energy Burden'
+2026-11-25 14:56:45,464 - INFO - ▶️ Executing: scripts/01_ingest.py
+2026-11-25 14:56:45,835 - INFO - Output:
+2026-11-25 14:56:45,790 [INFO] === Starting Ingestion (Raw -> Bronze) ===
+2026-11-25 14:56:45,802 [INFO] --- [bkk_temperature] Daily mean 2 m air temperature, Bangkok grid cell, 2016-present
+2026-11-25 14:56:45,805 [INFO]     UNCHANGED | origin=retained | 67,538 bytes | sha256=ec8c1c267dfb
+2026-11-25 14:56:45,806 [INFO]     station metadata -> data\bronze\ref_temperature_stations.csv (lat=13.743409, lon=100.495865)
+2026-11-25 14:56:45,806 [INFO] --- [mea_electricity] Units sold (million kWh) per MEA district, yearly 2559-2568 B.E. + monthly
+2026-11-25 14:56:45,807 [INFO]     UNCHANGED | origin=retained | 8,900 bytes | sha256=297fc96c5671
+2026-11-25 14:56:45,807 [INFO] --- [ref_mea_districts] MEA district names (TH/EN), province, approx. lat/lon for spatial join
+2026-11-25 14:56:45,808 [INFO]     UNCHANGED | origin=reference:data\reference\mea_districts.csv | 2,150 bytes | sha256=f6232288d6ed
+2026-11-25 14:56:45,809 [INFO] Manifest saved -> data\bronze\_manifest.json
+2026-11-25 14:56:45,809 [INFO] === Ingestion Stage Finished Successfully ===
+2026-11-25 14:56:45,836 - INFO - ✅ Successfully finished: scripts/01_ingest.py
+2026-11-25 14:56:45,836 - INFO - ▶️ Executing: scripts/01_ingest_validate_survey.py
+2026-11-25 14:56:48,440 - INFO - Output:
+--- สรุปตัวอย่างข้อมูลสะอาดใน Silver Zone ---
+  household_code  ...  summer_energy_burden_pct
+0      HH-2C0EB1  ...                     23.33
+1      HH-A40CED  ...                      4.29
+2      HH-A13952  ...                     10.00
+3      HH-389785  ...                      4.29
+4      HH-10A7B6  ...                      7.14
+
+[5 rows x 5 columns]
+2026-11-25 14:56:48,440 - INFO - ✅ Successfully finished: scripts/01_ingest_validate_survey.py
+2026-11-25 14:56:48,440 - INFO - ▶️ Executing: scripts/02_validate_clean.py
+2026-11-25 14:56:50,063 - INFO - Output:
+2026-11-25 14:56:49,678 [INFO] === Starting Data Validation & Cleansing Pipeline ===
+2026-11-25 14:56:49,678 [INFO] --- [START] Validating & Cleaning Temperature Data ---
+2026-11-25 14:56:49,864 [INFO] [Temperature] Pandera Validation PASSED (3964 rows).
+2026-11-25 14:56:49,864 [INFO] --- [START] Validating & Cleaning MEA Electricity Data ---
+2026-11-25 14:56:49,884 [INFO] [Electricity] Pandera Validation PASSED (180 rows).
+2026-11-25 14:56:49,931 [INFO] Saved: C:\Data341\urban-heat-energy-burden\data\silver\clean_temperature.parquet
+2026-11-25 14:56:49,931 [INFO] Saved: C:\Data341\urban-heat-energy-burden\data\silver\clean_electricity.parquet
+2026-11-25 14:56:49,932 [INFO] === Validation & Cleaning Stage Finished Successfully ===
+2026-11-25 14:56:50,063 - INFO - ✅ Successfully finished: scripts/02_validate_clean.py
+2026-11-25 14:56:50,063 - INFO - ▶️ Executing: scripts/03_transform.py
+2026-11-25 14:56:52,272 - INFO - Output:
+2026-11-25 14:56:51,259 [INFO] === Starting Transformation & Integration (Silver -> Gold) ===
+2026-11-25 14:56:51,279 [INFO] [CHECK PASSED] district reference has unique names (18 districts)
+2026-11-25 14:56:51,280 [INFO] [CHECK PASSED] station reference has unique ids (1 station(s))
+2026-11-25 14:56:51,280 [INFO] [CHECK PASSED] all district coordinates are inside the Bangkok-metro bounding box
+2026-11-25 14:56:51,281 [INFO] [CHECK PASSED] all station coordinates are inside the Bangkok-metro bounding box
+2026-11-25 14:56:51,281 [INFO] --- [Spatial] district -> nearest temperature station (sjoin_nearest) ---
+2026-11-25 14:56:51,331 [INFO] [CHECK PASSED] every district is linked to a temperature station
+2026-11-25 14:56:51,333 [INFO]     district->station distance: min 0.35 km, median 15.24 km, max 31.14 km
+2026-11-25 14:56:51,484 [INFO] --- [Temporal] daily temperature -> monthly & yearly heat features ---
+2026-11-25 14:56:51,519 [INFO] [CHECK PASSED] temperature has one row per station per day
+2026-11-25 14:56:51,554 [INFO]     years with < 95% temperature coverage (excluded from fact): [2026]
+2026-11-25 14:56:51,554 [INFO] --- [Integration] electricity x district dimension x yearly heat ---
+2026-11-25 14:56:51,568 [INFO] [CHECK PASSED] all electricity districts match the district dimension (unmatched: none)
+2026-11-25 14:56:51,571 [INFO] [CHECK PASSED] electricity has one row per district per year
+2026-11-25 14:56:51,590 [INFO] [CHECK PASSED] fact row count = joinable electricity rows (180/180)
+2026-11-25 14:56:51,593 [INFO] [CHECK PASSED] no nulls in key metrics (consumption, mean_temp_c, cdd, station_id)
+2026-11-25 14:56:51,600 [INFO] --- [Gold] writing outputs ---
+2026-11-25 14:56:51,605 [INFO]     saved data\gold\dim_district.parquet (18 rows)
+2026-11-25 14:56:51,609 [INFO]     saved data\gold\agg_temperature_monthly.parquet (131 rows)
+2026-11-25 14:56:51,614 [INFO]     saved data\gold\agg_temperature_yearly.parquet (11 rows)
+2026-11-25 14:56:51,618 [INFO]     saved data\gold\fact_district_energy_heat_yearly.parquet (180 rows)
+2026-11-25 14:56:51,622 [INFO]     saved data\gold\agg_year_energy_heat.parquet (10 rows)
+2026-11-25 14:56:52,155 [INFO] Created 18 records
+2026-11-25 14:56:52,155 [INFO]     saved data\gold\dim_district.geojson (for maps)
+2026-11-25 14:56:52,158 [INFO]     PREVIEW Pearson r(CDD, total consumption) = 0.667 (n=10 years); excluding COVID years = 0.811  -- small n, indicative only
+2026-11-25 14:56:52,166 [INFO] === Transformation Stage Finished Successfully ===
+2026-11-25 14:56:52,272 - INFO - ✅ Successfully finished: scripts/03_transform.py
+2026-11-25 14:56:52,272 - INFO - 🎉 Pipeline execution completed.
