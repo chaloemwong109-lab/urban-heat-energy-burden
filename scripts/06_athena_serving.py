@@ -1,20 +1,6 @@
 """
 06_athena_serving.py — Cloud Serving layer (Glue Data Catalog + Amazon Athena)
-Owner: ปุณยนุช แซ่แจ้ง (Member 4 — Cloud Compute)
 
-Waits for the Glue crawler (started by the Lambda) to finish, then runs every
-cloud/athena/*.sql query with Athena (serverless SQL on the Parquet files in S3)
-and saves each result as evidence:
-
-  local : docs/cloud_evidence/<query>.csv
-  S3    : s3://<bucket>/athena-results/   (Athena's own output)
-
-Like 04_upload_s3.py it skips quietly when no AWS credentials are present, so the
-local pipeline keeps working without a lab token.
-
-Usage
-  export S3_BUCKET_NAME=<your-bucket>
-  python scripts/06_athena_serving.py
 """
 
 import csv

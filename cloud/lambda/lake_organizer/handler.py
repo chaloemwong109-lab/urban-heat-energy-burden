@@ -1,20 +1,6 @@
 """
 AWS Lambda — uheb-lake-organizer
-Owner: ปุณยนุช แซ่แจ้ง (Member 4 — Cloud Compute)
 
-Trigger : S3 ObjectCreated on  silver/*.parquet  and  gold/*.parquet
-          (written by scripts/04_upload_s3.py)
-What it does
-  1. Copies each new Parquet file into a "one folder per table" layout:
-         gold/fact_x.parquet  ->  warehouse/gold/fact_x/fact_x.parquet
-     Glue/Athena treat a *folder* as a table, so flat files in gold/ cannot be
-     queried directly. The original upload is left untouched (Bronze/Silver/Gold
-     stay exactly as the local pipeline produced them).
-  2. Starts the Glue crawler so the Data Catalog (and Athena) see new tables or
-     schema changes. Several files arrive together, so "already running" is normal.
-  3. Writes a JSON run record to _ops/lambda_runs/ (cloud-side lineage / audit log).
-
-Only boto3 is used (built into the Lambda Python runtime) -> no layers to manage.
 """
 
 import json

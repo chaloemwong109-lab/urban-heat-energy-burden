@@ -1,23 +1,6 @@
 """
 05_setup_aws_cloud.py — Cloud Compute set-up (S3 + Lambda + Glue + Athena)
-Owner: ปุณยนุช แซ่แจ้ง (Member 4 — Cloud Compute)
 
-Creates (or updates, so it is safe to re-run) everything the cloud side needs,
-in the AWS Academy Learner Lab account whose credentials are in ~/.aws/credentials:
-
-  S3 bucket            $S3_BUCKET_NAME            data lake (bronze/ silver/ gold/)
-  Glue database        urban_heat_energy          Data Catalog for Athena
-  Glue crawler         uheb-warehouse-crawler     s3://<bucket>/warehouse/{silver,gold}/
-  Lambda function      uheb-lake-organizer        cloud/lambda/lake_organizer/handler.py
-  S3 -> Lambda trigger on silver/*.parquet and gold/*.parquet
-
-Learner Lab cannot create IAM roles, so Lambda and Glue use the lab's "LabRole".
-
-Usage
-  export S3_BUCKET_NAME=<your-unique-bucket>
-  python scripts/05_setup_aws_cloud.py              # create/update resources
-  python scripts/04_upload_s3.py                    # upload -> triggers Lambda
-  python scripts/05_setup_aws_cloud.py --backfill   # (optional) re-process files already in S3
 """
 
 import argparse
