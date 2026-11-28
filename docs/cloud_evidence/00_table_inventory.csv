@@ -1,0 +1,12 @@
+﻿table_name,n_rows
+agg_temperature_monthly,131
+agg_temperature_yearly,11
+agg_year_energy_heat,10
+clean_electricity,180
+clean_household_survey,88
+clean_temperature,3964
+dim_district,18
+dim_household_housing,88
+dim_household_socioeconomic,88
+fact_district_energy_heat_yearly,180
+fact_household_energy_heat,88

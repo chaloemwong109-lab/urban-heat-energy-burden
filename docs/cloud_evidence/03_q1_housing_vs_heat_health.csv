@@ -1,0 +1,11 @@
+﻿feature,category,households,avg_health_symptoms_0_3,pct_insomnia,pct_headache_fatigue
+roof_material,กระเบื้อง,52,1.5,28.8,50.0
+roof_material,สังกะสี/เมทัลชีท,32,1.47,37.5,53.1
+roof_material,คอนกรีต,4,0.75,25.0,50.0
+surrounding_shade,พอมี,27,1.81,44.4,59.3
+surrounding_shade,มาก,19,1.47,36.8,47.4
+surrounding_shade,ไม่มีเลย,19,1.32,15.8,52.6
+surrounding_shade,น้อย,23,1.13,26.1,43.5
+ventilation_quality,ไม่ดี,46,1.61,37.0,54.3
+ventilation_quality,ปานกลาง,19,1.47,21.1,57.9
+ventilation_quality,ดี,23,1.13,30.4,39.1
