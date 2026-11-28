@@ -1,0 +1,3 @@
+# Optional extra for demo_checkpoint.ipynb only (~450 MB download, needs Java 17+)
+-r requirements.txt
+pyspark>=3.5
